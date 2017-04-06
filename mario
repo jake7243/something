@@ -1,0 +1,22 @@
+final int screenWidth = 512;
+2final int screenHeight = 432;
+3 
+4void initialize() {
+5  addScreen("level", new MarioLevel(width, height));  
+6}
+7 
+8class MarioLevel extends Level {
+9  MarioLevel(float levelWidth, float levelHeight) {
+10    super(levelWidth, levelHeight);
+11    addLevelLayer("layer", new MarioLayer(this));
+12  }
+13}
+14 
+15class MarioLayer extends LevelLayer {
+16  MarioLayer(Level owner) {
+17    super(owner);
+18    setBackgroundColor(color(0, 100, 190));
+19    addBoundary(new Boundary(0,height-48,width,height-48));
+20    showBoundaries = true;
+21  }
+22}
